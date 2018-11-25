@@ -22,7 +22,5 @@ class Api::MenuItemsController < ApplicationController
           message = "Please input a valid quantity"
         end
         render json: { message: message}
-      
     end
-    
 end 
