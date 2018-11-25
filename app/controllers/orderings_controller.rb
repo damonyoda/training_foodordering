@@ -69,7 +69,6 @@ class OrderingsController < ApplicationController
     # session[:order_id] = order_id
     # flash[:notice] = "you have just ordered #{menu_item_name}"
     
-    
   end
   
   def checkout
