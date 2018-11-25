@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @category.name %></h1>
+
+<p>
+  <strong>Description:</strong>
+  <%= @category.description %>
+</p>
+
+<hr></hr>
+
+<ul>
+  <% @category.menu_items.each do |menu_item| %>
+    <li> 
+      <%= menu_item.name %> 
+    </li>
+  <% end %>
+</ul>
+<br>
+
+<%= link_to 'Back', categories_path %>
+<% if is_admin? %>
+<%= link_to 'Edit', edit_category_path(@category) %> 
+<% end %>

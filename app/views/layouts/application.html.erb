@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FoodOrdering </title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  </head>
+
+  <body>
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top" >
+      <!-- Brand -->
+        <a class="navbar-brand" href="menu_items_path">Food Ordering session id = <%= session[:user_id] %> session orderid <%= session[:order_id] %></a>
+        
+        <% if session[:user_id].present? %>
+          <%= link_to "My profile", "/users/#{session[:user_id]}", class: "myprofile-right" %>
+          <%= link_to "Log out", logout_path, data: {method: :delete}, class: "login-right" %>
+          <!--<a class="login-right" href="<%#= logout_path %>" method: :delete >Log out</a>-->
+        <% else %>
+          <a class="login-right" href="<%= login_path %>">Log in</a>
+          <%= link_to 'Sign up now', sign_up_path, class: "myprofile-right" %>
+        <% end %>
+      <!-- Links --> 
+      </nav>
+
+      <div class="row">
+      	<div class="col-lg-2" id="navsidebar">
+      		<div class="contactsidebar bar-light-grey bar-block" style="width:15%">
+      		  <a href="<%= orderings_path %>" class="bar-item bar-button"> Start Ordering </a>
+      		  <a href="<%= menu_items_path %>" class="bar-item bar-button"></i> Menu items </a>
+      		</div>
+      	</div>
+
+        <div class="col-lg-10" id="maincontent">
+        	<div class="container">
+        	  <div id= "flash_messages">
+            	  <% if flash[:alert].present? %>
+                	  <br><p id= "alert"><%= flash[:alert] %></p>
+                <% end %>
+                <% if flash[:notice].present? %>
+                    <br><p id= "notice"><%= flash[:notice] %></p>
+                <% end %>
+            </div>
+            <%= yield %>
+            
+          </div>
+          
+        </div>
+      </div>
+    
+      
+  </body>
+</html>

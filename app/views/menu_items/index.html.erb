@@ -1,0 +1,49 @@
+
+<h1>Menu Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Unit price</th>
+      <th>Category</th>
+      <th>Position</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+    <% @menu_items.each do |menu_item| %>
+      <tr>
+        <% if menu_item.image.attached? %>
+          <td><%= image_tag menu_item.image.variant(resize: "150x150") %></td>
+        <% else %>
+          <td>No available</td>
+        <% end %>
+        <td><%= menu_item.name %></td>
+        <td><%= menu_item.description %></td>
+        <td><%= menu_item.unit_price %></td>
+        <td><%= menu_item.category.name %></td>
+        <td><%= menu_item.position %></td>
+        <td><%= link_to 'Show', menu_item %></td>
+        <% if is_admin? %>
+        <td><%= link_to 'Edit', edit_menu_item_path(menu_item) %></td>
+        <td><%= link_to 'Destroy', menu_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+        <td><%= link_to 'Add to cart', "" %></td>
+     
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if is_admin? %>
+<%= link_to 'New Menu Item', new_menu_item_path %>
+<% end %>
+<hr></hr>
+
+<h1>Order</h2>

@@ -1,0 +1,147 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+    .container {
+  		position: relative;
+  	}
+
+  	.contactsidebar {
+  		position: sticky;
+  		height:100%;
+  		width:200px;
+  		background-color:#000;
+  		position:fixed!important;
+  		z-index:1;
+  		overflow:auto;
+  	}
+
+  	.bar-light-grey{
+  		color:#000;
+  		background-color:#f1f1f1
+  	}
+
+  	.bar-block{
+  	display:block;
+  	width:100%
+  	}
+
+  	.bar-item{
+  	width:100%;
+  	display:block;
+  	padding:8px 16px;
+  	text-align:center;
+  	border:none;
+  	white-space:normal;
+  	float:none;
+  	outline:0
+  }
+
+    .bar-button{
+    	border:1px solid lightgrey;
+    	display:inline-block;
+    	padding:8px 16px;
+    	vertical-align:middle;
+    	overflow:hidden;
+    	text-decoration:none;
+    	color:inherit;
+    	background-color:inherit;
+    	text-align:left;
+    	cursor:pointer;
+    	white-space:nowrap
+    }
+
+    .round-button {
+    	display:block;
+      width:50px;
+      height:50px;
+      line-height:50px;
+      border: 2px solid #f5f5f5;
+      border-radius: 50%;
+      color:#f5f5f5;
+      text-align:center;
+    }
+
+    .round-button {
+    	position: absolute;
+      display:block;
+      width:60px;
+      height:60px;
+      line-height:50px;
+      border: 2px solid #f5f5f5;
+      border-radius: 50%;
+      color:#f5f5f5;
+      text-align:center;
+      text-decoration:none;
+      background: #464646;
+      box-shadow: 0 0 3px gray;
+      font-size:20px;
+      font-weight:bold;
+      right: 20px;
+      top: 480px;
+    }
+
+    .round-button:hover {
+        background: #262626;
+    }
+
+/*    input + span {
+      padding-right: 30px;
+    }*/
+
+    input:invalid+span:after {
+      position: absolute; 
+      content: '✖';
+      /*padding-left: 5px;*/
+      color: #8b0000;
+    }
+
+    input:valid+span:after {
+      position: absolute;
+      content: '✓';
+      /*padding-left: 5px;*/
+      color: #009000;
+    }
+
+    input[type="tel"] {
+      width: 200px;
+    }
+
+    .login-right {
+      position: absolute;
+      right: 50px;
+    }
+    
+    .myprofile-right {
+      position: absolute;
+      right: 120px;
+    }
+    
+    ul {
+      padding: 0;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    .categories-menu {
+      list-style-type: none;
+      float: left;
+      width: 7em;
+      text-align: center;
+    }
+    
+   

@@ -1,0 +1,23 @@
+<h1>Payments</h1>
+
+<%= form_tag payments_path do %>
+
+<table>
+    <tr><th>Total amount: RM <%= @order.total_amount %></th></tr>
+    <tr>
+        <th>Card owner</th>
+        <th>Card number</th>
+        <th>Card expiry date</th>
+        <th>CSV</th>
+    </tr>
+    
+    <tr>
+        <td><%= text_field_tag "card_owner" %></td>
+        <td><%= text_field_tag "card_number" %></td>
+        <td><%= text_field_tag "card_expiry_date" %></td>
+        <td><%= text_field_tag "card_csv" %></td>
+    </tr>
+    <% end %>
+    
+</table>
+<%= submit_tag "Pay" %>

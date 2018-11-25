@@ -1,0 +1,32 @@
+<br>
+
+<% if @menu_item.image.attached? %>
+  <td><%= image_tag @menu_item.image.variant(resize: "150x150") %></td>
+<% else %>
+  <td>Picture not available</td>
+<% end %>
+<p>
+  <strong>Name:</strong>
+  <%= @menu_item.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @menu_item.description %>
+</p>
+
+<p>
+  <strong>Unit price:</strong>
+  <%= @menu_item.unit_price %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @menu_item.category.name %>
+</p>
+
+
+<%= link_to 'Back', orderings_path %> 
+<% if is_admin? %>
+<%= link_to 'Edit', edit_menu_item_path(@menu_item) %>
+<% end %>

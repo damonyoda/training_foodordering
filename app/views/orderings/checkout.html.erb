@@ -1,0 +1,40 @@
+<h1>Checking Out</h1><br>
+
+<h3>List of ordered items under Order no. <%= @order.id %></h3>
+
+<%= form_tag update_order_orderings_path do %>
+
+<table>
+    <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Unit price</th>
+        <th>Sub total</th>
+    </tr>
+    <% sum_total = 0.0 %>
+    <% @order.ordered_items.each do |item| %>
+    <% sub_total = item.menu_item.unit_price * item.quantity %>
+    <% sum_total += sub_total %>
+    <tr>
+        <td><%= item.menu_item.name %></td>
+        <td><%= number_field_tag "ordered_items[#{item.id}][quantity]", item.quantity %></td>
+        <td><%= item.menu_item.unit_price %></td>
+        <td><%= sub_total %></td>
+        <td><%= link_to "-", decrease_quantity_ordering_path(item), data: {method: :delete} %></td>
+        <td><%= link_to "+", increase_quantity_ordering_path(item), data: {method: :put} %></td>
+    </tr>
+    <% end %>
+    <tr>
+        <td colspan="3", style="text-align: right">Total:</td>
+        <td><%= sum_total %></td>
+    </tr>
+    
+</table>
+
+<!--<div style="float: right">-->
+<div>
+    <%= submit_tag "Update order" %>
+    <%= link_to "Proceed to payment", new_payment_path %>
+</div>
+
+<% end %>
