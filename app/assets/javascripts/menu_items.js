@@ -22,9 +22,7 @@ function outputMenuItems() {
                 }  
                 menu_items_tbody.innerHTML = output;
                 addEventtoButtons();
-                
             }
-            
         };
     xhttp.open("GET", "api/menu_items", true);
     xhttp.send();
